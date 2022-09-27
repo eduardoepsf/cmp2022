@@ -64,7 +64,7 @@ stmt : atribuicao {
 atribuicao : TOK_IDENT '=' aritmetica {
 	  			$$ = create_noh(ASSIGN, 2);
 				noh *aux = create_noh(IDENT, 0);
-				aux->name = NULL;
+				aux->name = $1.ident;
 				$$->children[0] = aux;
 				$$->children[1] = $3;   
 	   		 }
@@ -119,15 +119,15 @@ factor : '(' aritmetica ')' {
 		 }
        | TOK_IDENT {
 	   		$$ = create_noh(IDENT, 0);
-			$$->name = NULL;
+			$$->name = $1.ident;
 	     }
 	   | TOK_INTEGER {
 	   		$$ = create_noh(INTEGER, 0);
-			$$->intv = 0;
+			$$->intv = $1.intv;
 	   	 }
 	   | TOK_FLOAT {
 	   		$$ = create_noh(FLOAT, 0);
-			$$->dblv = 0;
+			$$->dblv = $1.dblv;
 	   	 }
 	   ;
 

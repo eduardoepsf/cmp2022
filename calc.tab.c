@@ -1379,7 +1379,7 @@ yyreduce:
                                       {
 	  			(yyval.no) = create_noh(ASSIGN, 2);
 				noh *aux = create_noh(IDENT, 0);
-				aux->name = NULL;
+				aux->name = (yyvsp[-2].args).ident;
 				(yyval.no)->children[0] = aux;
 				(yyval.no)->children[1] = (yyvsp[0].no);   
 	   		 }
@@ -1476,7 +1476,7 @@ yyreduce:
 #line 120 "calc.y"
                    {
 	   		(yyval.no) = create_noh(IDENT, 0);
-			(yyval.no)->name = NULL;
+			(yyval.no)->name = (yyvsp[0].args).ident;
 	     }
 #line 1482 "calc.tab.c"
     break;
@@ -1485,7 +1485,7 @@ yyreduce:
 #line 124 "calc.y"
                          {
 	   		(yyval.no) = create_noh(INTEGER, 0);
-			(yyval.no)->intv = 0;
+			(yyval.no)->intv = (yyvsp[0].args).intv;
 	   	 }
 #line 1491 "calc.tab.c"
     break;
@@ -1494,7 +1494,7 @@ yyreduce:
 #line 128 "calc.y"
                        {
 	   		(yyval.no) = create_noh(FLOAT, 0);
-			(yyval.no)->dblv = 0;
+			(yyval.no)->dblv = (yyvsp[0].args).dblv;
 	   	 }
 #line 1500 "calc.tab.c"
     break;
