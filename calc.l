@@ -14,6 +14,23 @@ L	[a-zA-Z_]
 
 [ \t\r\n]			{}
 "print"				{ return TOK_PRINT; }
+"PRINT"				{ return PRINT; }
+
+"and"           { return TOKEN_AND; } /* Operadores lógicos */
+"or"            { return TOKEN_OR;  } /* Operadores lógicos */
+
+
+"if"            { return TOKEN_IF;  } /* Condicional */
+"else"          { return TOKEN_IF_ELSE;  } /* Condicional */
+"while"          { return TOKEN_WHILE;  } /* Condicional */
+
+"=="						{ return TOKEN_EQUAL; } /* Operadores lógicos */
+">"							{ return '>';  } /* Operadores lógicos */
+"<"							{ return '<';  } /* Operadores lógicos */
+">="						{ return TOKEN_GREATER_THAN_OR_EQUAL; } /* Operadores lógicos */
+"<="						{ return TOKEN_LESS_THAN_OR_EQUAL; } /* Operadores lógicos */
+"!="						{ return TOKEN_NOT_EQUAL; } /* Operadores lógicos */
+
 "="					{ return '=';  }
 "*"					{ return '*'; }
 "/"					{ return '/'; }
@@ -22,6 +39,8 @@ L	[a-zA-Z_]
 "("					{ return '('; }
 ")"					{ return ')'; }
 "^"					{ return '^'; }
+"{"						  { return '{'; }
+"}"						  { return '}'; }
 
 {D}+				{ yylval.args.intv = atoi(yytext); return TOK_INTEGER; }
 {D}+\.{D}+			{ yylval.args.dblv = atof(yytext); return TOK_FLOAT; }

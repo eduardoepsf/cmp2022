@@ -1,5 +1,14 @@
-A = 10
-B = 20.7^A
-C = (A+B)/(B*C)
-D = A + B
-print C
+if ( A == C ) {
+  print A + C
+} else {
+  print A
+}
+if ( A == 0){
+	while (A < 2) {
+  		A = A + 1
+	}
+}
+else{
+print B
+}
+

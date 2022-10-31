@@ -1,8 +1,8 @@
-/* A Bison parser, made by GNU Bison 3.5.1.  */
+/* A Bison parser, made by GNU Bison 3.7.5.  */
 
 /* Bison interface for Yacc-like parsers in C
 
-   Copyright (C) 1984, 1989-1990, 2000-2015, 2018-2020 Free Software Foundation,
+   Copyright (C) 1984, 1989-1990, 2000-2015, 2018-2021 Free Software Foundation,
    Inc.
 
    This program is free software: you can redistribute it and/or modify
@@ -31,8 +31,9 @@
    This special exception was added by the Free Software Foundation in
    version 2.2 of Bison.  */
 
-/* Undocumented macros, especially those whose name start with YY_,
-   are private implementation details.  Do not rely on them.  */
+/* DO NOT RELY ON FEATURES THAT ARE NOT DOCUMENTED in the manual,
+   especially those whose name start with YY_ or yy_.  They are
+   private implementation details that can be changed or removed.  */
 
 #ifndef YY_YY_CALC_TAB_H_INCLUDED
 # define YY_YY_CALC_TAB_H_INCLUDED
@@ -44,17 +45,31 @@
 extern int yydebug;
 #endif
 
-/* Token type.  */
+/* Token kinds.  */
 #ifndef YYTOKENTYPE
 # define YYTOKENTYPE
   enum yytokentype
   {
-    TOK_PRINT = 258,
-    TOK_IDENT = 259,
-    TOK_INTEGER = 260,
-    TOK_FLOAT = 261,
-    TOK_LITERAL = 262
+    YYEMPTY = -2,
+    YYEOF = 0,                     /* "end of file"  */
+    YYerror = 256,                 /* error  */
+    YYUNDEF = 257,                 /* "invalid token"  */
+    TOK_PRINT = 258,               /* TOK_PRINT  */
+    TOK_IDENT = 259,               /* TOK_IDENT  */
+    TOK_INTEGER = 260,             /* TOK_INTEGER  */
+    TOK_FLOAT = 261,               /* TOK_FLOAT  */
+    TOK_LITERAL = 262,             /* TOK_LITERAL  */
+    TOKEN_OR = 263,                /* TOKEN_OR  */
+    TOKEN_AND = 264,               /* TOKEN_AND  */
+    TOKEN_IF = 265,                /* TOKEN_IF  */
+    TOKEN_IF_ELSE = 266,           /* TOKEN_IF_ELSE  */
+    TOKEN_WHILE = 267,             /* TOKEN_WHILE  */
+    TOKEN_EQUAL = 268,             /* TOKEN_EQUAL  */
+    TOKEN_GREATER_THAN_OR_EQUAL = 269, /* TOKEN_GREATER_THAN_OR_EQUAL  */
+    TOKEN_LESS_THAN_OR_EQUAL = 270, /* TOKEN_LESS_THAN_OR_EQUAL  */
+    TOKEN_NOT_EQUAL = 271          /* TOKEN_NOT_EQUAL  */
   };
+  typedef enum yytokentype yytoken_kind_t;
 #endif
 
 /* Value type.  */
@@ -66,7 +81,7 @@ union YYSTYPE
 	token_args args;
 	struct noh *no;
 
-#line 70 "calc.tab.h"
+#line 85 "calc.tab.h"
 
 };
 typedef union YYSTYPE YYSTYPE;
