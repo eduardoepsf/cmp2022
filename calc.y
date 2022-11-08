@@ -1,6 +1,8 @@
 %{
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
+#include <string.h>
 #include "header.h"
 
 int yyerror(const char *s);
@@ -8,6 +10,10 @@ int yylex (void);
 
 //#define YYERROR_VERBOSE 1
 extern int yylineno;
+
+
+	
+
 %}
 
 %union {
@@ -39,7 +45,9 @@ program : stmts {
 
           // Chamada da árvore abstrata
       	print(program);
+      	debug();
           // Chamada da verificação semântica
+          visitor_leaf_first(&program, check_declared_vars);
           // Chamada da geração de código
         }
         ;
@@ -220,6 +228,30 @@ factor : '(' aritmetica ')' {
        };
 
 %%
+
+simbolo *simbolo_novo(char *nome, int token) {
+	tsimbolos[simbolo_qtd].nome = nome;
+	tsimbolos[simbolo_qtd].token = token;
+	simbolo *result = &tsimbolos[simbolo_qtd];
+	simbolo_qtd++;
+	return result;
+}
+
+bool simbolo_existe(char *nome) {
+	// busca linear, não eficiente
+	for(int i = 0; i < simbolo_qtd; i++) {
+		if (strcmp(tsimbolos[i].nome, nome) == 0)
+			return true;
+	}
+	return false;
+}
+
+void debug() {
+	printf("Simbolos:\n");
+	for(int i = 0; i < simbolo_qtd; i++) {
+		printf("\t%s\n", tsimbolos[i].nome);
+	}
+}
 
 int yyerror(const char *s) {
 printf("Erro na linha %d: %s\n", yylineno, s);
