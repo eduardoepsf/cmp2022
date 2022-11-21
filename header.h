@@ -36,6 +36,7 @@ typedef struct {
 	bool exists;
 } simbolo;
 
+static int error_count = 0;
 
 static int simbolo_qtd = 0;
 

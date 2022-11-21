@@ -538,7 +538,7 @@ static const yytype_uint8 yyrline[] =
        0,    42,    42,    55,    66,    72,    75,    81,    84,    89,
       97,   103,   111,   118,   123,   128,   133,   138,   141,   146,
      151,   156,   161,   166,   173,   178,   183,   189,   194,   199,
-     204,   209,   214,   217,   221,   225
+     204,   209,   214,   217,   223,   227
 };
 #endif
 
@@ -1686,30 +1686,32 @@ yyreduce:
                    {
           (yyval.no) = create_noh (IDENT, 0);
           (yyval.no) -> name = (yyvsp[0].args).ident;
+          if (!simbolo_existe((yyvsp[0].args).ident))
+          	simbolo_novo((yyvsp[0].args).ident, TOK_IDENT);
        }
-#line 1691 "calc.tab.c"
+#line 1693 "calc.tab.c"
     break;
 
   case 34:
-#line 221 "calc.y"
+#line 223 "calc.y"
                       {
           (yyval.no) = create_noh (INTEGER, 0);
           (yyval.no) -> intv = (yyvsp[0].args).intv;
        }
-#line 1700 "calc.tab.c"
+#line 1702 "calc.tab.c"
     break;
 
   case 35:
-#line 225 "calc.y"
+#line 227 "calc.y"
                    {
           (yyval.no) = create_noh (FLOAT, 0);
           (yyval.no) -> dblv = (yyvsp[0].args).dblv;
        }
-#line 1709 "calc.tab.c"
+#line 1711 "calc.tab.c"
     break;
 
 
-#line 1713 "calc.tab.c"
+#line 1715 "calc.tab.c"
 
       default: break;
     }
@@ -1941,12 +1943,13 @@ yyreturn:
 #endif
   return yyresult;
 }
-#line 230 "calc.y"
+#line 232 "calc.y"
 
 
-simbolo *simbolo_novo(char *nome, int token) {
+/*simbolo *simbolo_novo(char *nome, int token) {
 	tsimbolos[simbolo_qtd].nome = nome;
 	tsimbolos[simbolo_qtd].token = token;
+	tsimbolos[simbolo_qtd].exists = false;
 	simbolo *result = &tsimbolos[simbolo_qtd];
 	simbolo_qtd++;
 	return result;
@@ -1967,7 +1970,7 @@ void debug() {
 		printf("\t%s\n", tsimbolos[i].nome);
 	}
 }
-
+*/
 int yyerror(const char *s) {
 printf("Erro na linha %d: %s\n", yylineno, s);
 	return 1;

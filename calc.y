@@ -217,6 +217,8 @@ factor : '(' aritmetica ')' {
        | TOK_IDENT {
           $$ = create_noh (IDENT, 0);
           $$ -> name = $1.ident;
+          if (!simbolo_existe($1.ident))
+          	simbolo_novo($1.ident, TOK_IDENT);
        }
        | TOK_INTEGER  {
           $$ = create_noh (INTEGER, 0);
@@ -229,9 +231,10 @@ factor : '(' aritmetica ')' {
 
 %%
 
-simbolo *simbolo_novo(char *nome, int token) {
+/*simbolo *simbolo_novo(char *nome, int token) {
 	tsimbolos[simbolo_qtd].nome = nome;
 	tsimbolos[simbolo_qtd].token = token;
+	tsimbolos[simbolo_qtd].exists = false;
 	simbolo *result = &tsimbolos[simbolo_qtd];
 	simbolo_qtd++;
 	return result;
@@ -252,7 +255,7 @@ void debug() {
 		printf("\t%s\n", tsimbolos[i].nome);
 	}
 }
-
+*/
 int yyerror(const char *s) {
 printf("Erro na linha %d: %s\n", yylineno, s);
 	return 1;
