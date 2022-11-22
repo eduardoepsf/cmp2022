@@ -69,6 +69,8 @@ typedef void (*visitor_action)(noh **root, noh *no);
 
 void check_declared_vars(noh **root, noh *no);
 void visitor_leaf_first(noh **root, visitor_action act);
+void visitor_leaf_root(noh **root, visitor_action act);
+void code_generate(noh **root, noh *no);
 noh *create_noh(enum noh_type, int children);
 void add_noh(noh noh_target, enum noh_type);
 

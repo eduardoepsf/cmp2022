@@ -64,6 +64,20 @@ void visitor_leaf_first(noh **root, visitor_action act){
 
 }
 
+void visitor_leaf_root(noh **root, visitor_action act){
+
+	noh *r = *root;
+	
+	visitor_leaf_root(&r->children[0], act);
+	act(root, r);
+	for(int i = 1;  i < r->childcount; i++){
+		visitor_leaf_first(&r->children[i], act);
+		if (act != NULL)
+			act(root, r->children[i]);
+	}
+
+}
+
 void check_declared_vars(noh **root, noh *no){
 
 	noh *nr = *root;
@@ -110,6 +124,18 @@ bool simbolo_existe(char *nome) {
 			return true;
 	}
 	return false;
+}
+
+void code_generate(noh **root, noh *no){
+
+	if (no->type == IDENT)
+		printf("%s/n", no->name);
+	else if (no->type == ASSIGN)
+		printf(" = ");
+	else if (no->type == INTEGER)
+		printf("%d", no->intv);
+	else if (no->type == FLOAT)
+		printf("%f", no->dblv);
 }
 
 void debug() {
