@@ -1,5 +1,5 @@
 graph {
-N30[label="program"];
+N35[label="program"];
 N3[label="stmt"];
 N1[label="="];
 N2[label="A"];
@@ -7,57 +7,67 @@ N1 -- N2
 N0[label="10"];
 N1 -- N0
 N3 -- N1
-N7[label="="];
-N8[label="B"];
-N7 -- N8
-N6[label="^"];
-N4[label="20.700000"];
-N6 -- N4
-N5[label="A"];
-N6 -- N5
-N7 -- N6
-N3 -- N7
-N16[label="="];
-N17[label="C"];
-N16 -- N17
-N15[label="*"];
-N13[label="/"];
-N11[label="+"];
-N9[label="A"];
-N11 -- N9
-N10[label="B"];
-N11 -- N10
-N13 -- N11
-N12[label="B"];
-N13 -- N12
+N5[label="="];
+N6[label="B"];
+N5 -- N6
+N4[label="7"];
+N5 -- N4
+N3 -- N5
+N8[label="="];
+N9[label="C"];
+N8 -- N9
+N7[label="0"];
+N8 -- N7
+N3 -- N8
+N19[label="conditional"];
+N12[label="equal"];
+N10[label="A"];
+N12 -- N10
+N11[label="C"];
+N12 -- N11
+N19 -- N12
+N16[label="print"];
+N15[label="+"];
+N13[label="A"];
 N15 -- N13
 N14[label="C"];
 N15 -- N14
 N16 -- N15
-N3 -- N16
-N21[label="="];
-N22[label="D"];
-N21 -- N22
-N20[label="+"];
-N18[label="A"];
-N20 -- N18
-N19[label="B"];
-N20 -- N19
-N21 -- N20
-N3 -- N21
-N26[label="="];
-N27[label="E"];
-N26 -- N27
-N25[label="+"];
-N23[label="C"];
+N19 -- N16
+N18[label="print"];
+N17[label="A"];
+N18 -- N17
+N19 -- N18
+N3 -- N19
+N34[label="conditional"];
+N22[label="equal"];
+N20[label="A"];
+N22 -- N20
+N21[label="0"];
+N22 -- N21
+N34 -- N22
+N31[label="loop"];
+N25[label="less_than"];
+N23[label="A"];
 N25 -- N23
-N24[label="D"];
+N24[label="2"];
 N25 -- N24
-N26 -- N25
-N3 -- N26
-N29[label="print"];
-N28[label="C"];
+N31 -- N25
+N29[label="="];
+N30[label="A"];
+N29 -- N30
+N28[label="+"];
+N26[label="A"];
+N28 -- N26
+N27[label="1"];
+N28 -- N27
 N29 -- N28
-N3 -- N29
-N30 -- N3
+N31 -- N29
+N34 -- N31
+N33[label="print"];
+N32[label="B"];
+N33 -- N32
+N34 -- N33
+N3 -- N34
+N35 -- N3
 }

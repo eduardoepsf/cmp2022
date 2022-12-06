@@ -3,4 +3,4 @@ B = 20.7^A
 C = (A+B)/B*C
 D = A + B
 E = C + D
-print C
+MOSTRA NA TELA AI AMIGAO! C

@@ -12,7 +12,7 @@ enum noh_type {PROGRAM,
 	IDENT, GENERIC, EQUAL,
   	NOT_EQUAL, GREATER_THAN, LESS_THAN,
   	GREATER_THAN_OR_EQUAL, LESS_THAN_OR_EQUAL, 
-  	CONDITIONAL, LOGICAL_AND, LOGICAL_OR, LOOP};
+  	CONDITIONAL, LOGICAL_AND, LOGICAL_OR, LOOP, PONTO};
 
 static const char *noh_type_names[] = {
     "program", "=", "+", "-", "*", "/",

@@ -129,7 +129,7 @@ bool simbolo_existe(char *nome) {
 void code_generate(noh **root, noh *no){
 
 	if (no->type == IDENT)
-		printf("%s/n", no->name);
+		printf("%s\n", no->name);
 	else if (no->type == ASSIGN)
 		printf(" = ");
 	else if (no->type == INTEGER)

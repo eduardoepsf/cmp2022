@@ -13,23 +13,23 @@ L	[a-zA-Z_]
 %% 
 
 [ \t\r\n]			{}
-"print"				{ return TOK_PRINT; }
+"MOSTRA NA TELA AI AMIGAO!"				{ return TOK_PRINT; }
 "PRINT"				{ return PRINT; }
 
 "and"           { return TOKEN_AND; } /* Operadores lógicos */
 "or"            { return TOKEN_OR;  } /* Operadores lógicos */
 
 
-"if"            { return TOKEN_IF;  } /* Condicional */
-"else"          { return TOKEN_IF_ELSE;  } /* Condicional */
-"while"          { return TOKEN_WHILE;  } /* Condicional */
+"SE FOR ISSO, FAZ ISSO!"            { return TOKEN_IF;  } /* Condicional */
+"SE NAO, FAZ ISSO!"          { return TOKEN_IF_ELSE;  } /* Condicional */
+"FAZ AI POR ENQUANTO!"          { return TOKEN_WHILE;  } /* Condicional */
 
-"=="						{ return TOKEN_EQUAL; } /* Operadores lógicos */
-">"							{ return '>';  } /* Operadores lógicos */
-"<"							{ return '<';  } /* Operadores lógicos */
-">="						{ return TOKEN_GREATER_THAN_OR_EQUAL; } /* Operadores lógicos */
-"<="						{ return TOKEN_LESS_THAN_OR_EQUAL; } /* Operadores lógicos */
-"!="						{ return TOKEN_NOT_EQUAL; } /* Operadores lógicos */
+"EH IGUAL A"						{ return TOKEN_EQUAL; } /* Operadores lógicos */
+"EH MAIOR QUE"							{ return '>';  } /* Operadores lógicos */
+"EH MENOR QUE"							{ return '<';  } /* Operadores lógicos */
+"EH MAIOR OU IGUAL A"						{ return TOKEN_GREATER_THAN_OR_EQUAL; } /* Operadores lógicos */
+"EH MENOR OU IGUAL A"						{ return TOKEN_LESS_THAN_OR_EQUAL; } /* Operadores lógicos */
+"EH DIFERENTE DE"						{ return TOKEN_NOT_EQUAL; } /* Operadores lógicos */
 
 "="					{ return '=';  }
 "*"					{ return '*'; }

@@ -1,14 +1,17 @@
-if ( A == C ) {
-  print A + C
-} else {
-  print A
+A = 10
+B = 7
+C = 0
+SE FOR ISSO, FAZ ISSO! ( A EH IGUAL A C ) {
+  	MOSTRA NA TELA AI AMIGAO! A + C
+} SE NAO, FAZ ISSO! {
+  	MOSTRA NA TELA AI AMIGAO! A
 }
-if ( A == 0){
-	while (A < 2) {
+SE FOR ISSO, FAZ ISSO! ( A EH IGUAL A 0){
+	FAZ AI POR ENQUANTO! (A EH MENOR QUE 2) {
   		A = A + 1
 	}
 }
-else{
-print B
+SE NAO, FAZ ISSO!{
+	MOSTRA NA TELA AI AMIGAO! B
 }
 

@@ -95,13 +95,13 @@ atribuicao : TOK_IDENT '=' aritmetica {
            }
            ;
 
-if: TOKEN_IF '(' logicalExpression ')' '{' stmts '}' {
+if: TOKEN_IF '(' logicalExpression ')' '{' stmt '}' {
                $$ = create_noh (CONDITIONAL, 2);
                $$ -> children[0] = $3;
                $$ -> children[1] = $6;
           }
           |
-          TOKEN_IF '(' logicalExpression ')' '{' stmts '}' TOKEN_IF_ELSE '{' stmts '}' {
+          TOKEN_IF '(' logicalExpression ')' '{' stmt '}' TOKEN_IF_ELSE '{' stmt '}' {
                $$ = create_noh (CONDITIONAL, 3);
                $$ -> children[0] = $3;
                $$ -> children[1] = $6;
@@ -109,7 +109,7 @@ if: TOKEN_IF '(' logicalExpression ')' '{' stmts '}' {
           }
           ;
 
-while: TOKEN_WHILE '(' logicalExpression ')' '{' stmts '}' {
+while: TOKEN_WHILE '(' logicalExpression ')' '{' stmt '}' {
                $$ = create_noh (LOOP, 2);
                $$ -> children[0] = $3;
                $$ -> children[1] = $6;
